@@ -1,6 +1,7 @@
 import 'dotenv/config'
 import { runLLM } from './src/llm'
 import { addMessages, getMessages } from './src/memory'
+import { runAgent } from './src/agent'
 
 const userMessage = process.argv[2]
 
@@ -17,3 +18,7 @@ const response = await runLLM({
 })
 
 console.log(response)
+
+const messages = await runAgent({
+  userMessage,
+})
